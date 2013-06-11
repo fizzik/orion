@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @products }
+      format.csv { send_data @products.to_csv }
+      format.xls # { send_data @products.to_csv(col_sep: "\t") }
     end
   end
 
@@ -68,6 +69,12 @@ class ProductsController < ApplicationController
       end
     end
   end
+
+  def import
+    Product.import(params[:file])
+    redirect_to :back, notice: "Products imported."
+  end
+
 
   # DELETE /products/1
   # DELETE /products/1.json
