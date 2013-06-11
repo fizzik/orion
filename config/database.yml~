@@ -1,0 +1,19 @@
+development:
+	adapter: mysql2
+	encoding: utf8
+	reconnect: false
+	database: orion_app
+	pool: 5
+	username: root
+	password: '5215'
+	socket: /var/run/mysqld/mysqld.sock
+
+test:
+	adapter: mysql2
+	encoding: utf8
+	reconnect: false
+	database: orion_test
+	pool: 5
+	username: root
+	password: '5215'
+	socket: /var/run/mysqld/mysqld.sock
